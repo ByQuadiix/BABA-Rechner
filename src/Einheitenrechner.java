@@ -21,7 +21,7 @@ void main() {
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton source = (JButton) e.getSource();
-            String text = source.getText();
+            String text = source.getName();
             System.out.println(text);
             //JPanel newPanel = b.createTemplate(text);
             //update(newPanel);
@@ -38,48 +38,86 @@ void main() {
     Font text = new Font("Sans Serif", Font.PLAIN, 25);
 
 
-    //======================================Hauptmenü=========================================\\
-    JPanel mainMenu = new JPanel();
-    mainMenu.setLayout(new GridLayout(3, 3));
+
+
+    //======================================Title Panel=========================================\\
+    JPanel Title = new JPanel();
+    Title.setLayout(new BorderLayout());
+    JLabel TitleTextPanel = new JLabel("BABA-RECHNER");
+    TitleTextPanel.setHorizontalAlignment(SwingConstants.CENTER);
+    TitleTextPanel.setFont(ueberschrift);
+    Title.add(TitleTextPanel, BorderLayout.CENTER);
+
+
+    //======================================Button Panel=========================================\\
+    JPanel Buttons = new JPanel();
+    Buttons.setLayout(new GridLayout(3, 3));
 
     //=====Buttons=====\\
     JButton FlaecheBtn = new JButton();
+    FlaecheBtn.setName("FlaecheBtn");
     FlaecheBtn.setIcon(new ImageIcon("Assets/icon/area.png"));
     FlaecheBtn.setHorizontalAlignment(SwingConstants.CENTER);
+    FlaecheBtn.addActionListener(BTNlistener);
 
     JButton GeschwindigkeitBtn = new JButton();
+    GeschwindigkeitBtn.setName("GeschwindigkeitBtn");
     GeschwindigkeitBtn.setIcon(new ImageIcon("Assets/icon/speed.png"));
-    FlaecheBtn.setHorizontalAlignment(SwingConstants.CENTER);
+    GeschwindigkeitBtn.setHorizontalAlignment(SwingConstants.CENTER);
+    GeschwindigkeitBtn.addActionListener(BTNlistener);
 
     JButton GewichtBtn = new JButton();
+    GewichtBtn.setName("GewichtBtn");
     GewichtBtn.setHorizontalAlignment(SwingConstants.CENTER);
     GewichtBtn.setIcon(new ImageIcon("Assets/icon/weight.png"));
+    GewichtBtn.addActionListener(BTNlistener);
 
     JButton KraftBtn = new JButton();
+    KraftBtn.setName("KraftBtn");
     KraftBtn.setHorizontalAlignment(SwingConstants.CENTER);
     KraftBtn.setIcon(new ImageIcon("Assets/icon/force.png"));
+    KraftBtn.addActionListener(BTNlistener);
 
     JButton LaengeBtn = new JButton();
+    LaengeBtn.setName("LaengeBtn");
     LaengeBtn.setHorizontalAlignment(SwingConstants.CENTER);
     LaengeBtn.setIcon(new ImageIcon("Assets/icon/length.png"));
+    LaengeBtn.addActionListener(BTNlistener);
 
     JButton VolumenBtn = new JButton();
+    VolumenBtn.setName("VolumenBtn");
     VolumenBtn.setHorizontalAlignment(SwingConstants.CENTER);
     VolumenBtn.setIcon(new ImageIcon("Assets/icon/volume.png"));
+    VolumenBtn.addActionListener(BTNlistener);
 
     JButton ZeitBtn = new JButton();
+    ZeitBtn.setName("ZeitBtn");
     ZeitBtn.setHorizontalAlignment(SwingConstants.CENTER);
     ZeitBtn.setIcon(new ImageIcon("Assets/icon/time.png"));
+    ZeitBtn.addActionListener(BTNlistener);
 
-    mainMenu.add(FlaecheBtn);
-    mainMenu.add(GeschwindigkeitBtn);
-    mainMenu.add(GewichtBtn);
-    mainMenu.add(KraftBtn);
-    mainMenu.add(LaengeBtn);
-    mainMenu.add(VolumenBtn);
-    mainMenu.add(ZeitBtn);
 
-    window.add(mainMenu);
+    Buttons.add(FlaecheBtn);
+    Buttons.add(GeschwindigkeitBtn);
+    Buttons.add(GewichtBtn);
+    Buttons.add(KraftBtn);
+    Buttons.add(LaengeBtn);
+    Buttons.add(VolumenBtn);
+    Buttons.add(ZeitBtn);
+
+    //======================================Menu Panel=========================================\\
+    JPanel Menu = new JPanel();
+    Menu.setLayout(new BorderLayout());
+    Menu.add(Title, BorderLayout.NORTH);
+    Menu.add(Buttons, BorderLayout.SOUTH);
+
+
+    window.add(Menu);
+
+
+
+
+
 
     window.setVisible(true);
 
