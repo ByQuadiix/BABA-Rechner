@@ -1,3 +1,5 @@
+import Backend.PanelBuilder;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -12,7 +14,7 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public static JFrame window = new JFrame();
 private JFrame introFrame = new JFrame();
-
+PanelBuilder Builder = new PanelBuilder();
 // KI generiert von ChatGPT, angepasst von ByQuadiix
 private void switchtomain(){
     introFrame.dispose();
@@ -33,7 +35,7 @@ void main() {
     introFrame.pack();
     introFrame.setLocationRelativeTo(null);
     introFrame.setVisible(true);
-    Timer timer = new Timer( 8000, e ->{
+    Timer timer = new Timer( 500, e ->{
        switchtomain();
     });
     timer.setRepeats(false);
@@ -50,8 +52,13 @@ void main() {
             JButton source = (JButton) e.getSource();
             String text = source.getName();
             System.out.println(text);
-            //JPanel newPanel = b.createTemplate(text);
-            //update(newPanel);
+            JPanel newPanel = Builder.BuildPanel(Builder.getEinheiten(text));
+            if (newPanel == null) {
+                System.out.println("Fehler: Panel konnte nicht erstellt werden.");
+                return;
+            }
+
+            update(newPanel);
         }
 
     };
@@ -80,43 +87,43 @@ void main() {
 
     //=====Buttons=====\\
     JButton FlaecheBtn = new JButton();
-    FlaecheBtn.setName("FlaecheBtn");
+    FlaecheBtn.setName("Fläche");
     FlaecheBtn.setIcon(new ImageIcon("Assets/icon/area.png"));
     FlaecheBtn.setHorizontalAlignment(SwingConstants.CENTER);
     FlaecheBtn.addActionListener(BTNlistener);
 
     JButton GeschwindigkeitBtn = new JButton();
-    GeschwindigkeitBtn.setName("GeschwindigkeitBtn");
+    GeschwindigkeitBtn.setName("Geschwindigkeit");
     GeschwindigkeitBtn.setIcon(new ImageIcon("Assets/icon/speed.png"));
     GeschwindigkeitBtn.setHorizontalAlignment(SwingConstants.CENTER);
     GeschwindigkeitBtn.addActionListener(BTNlistener);
 
     JButton GewichtBtn = new JButton();
-    GewichtBtn.setName("GewichtBtn");
+    GewichtBtn.setName("Gewicht");
     GewichtBtn.setHorizontalAlignment(SwingConstants.CENTER);
     GewichtBtn.setIcon(new ImageIcon("Assets/icon/weight.png"));
     GewichtBtn.addActionListener(BTNlistener);
 
     JButton KraftBtn = new JButton();
-    KraftBtn.setName("KraftBtn");
+    KraftBtn.setName("Kraft");
     KraftBtn.setHorizontalAlignment(SwingConstants.CENTER);
     KraftBtn.setIcon(new ImageIcon("Assets/icon/force.png"));
     KraftBtn.addActionListener(BTNlistener);
 
     JButton LaengeBtn = new JButton();
-    LaengeBtn.setName("LaengeBtn");
+    LaengeBtn.setName("Länge");
     LaengeBtn.setHorizontalAlignment(SwingConstants.CENTER);
     LaengeBtn.setIcon(new ImageIcon("Assets/icon/length.png"));
     LaengeBtn.addActionListener(BTNlistener);
 
     JButton VolumenBtn = new JButton();
-    VolumenBtn.setName("VolumenBtn");
+    VolumenBtn.setName("Volumen");
     VolumenBtn.setHorizontalAlignment(SwingConstants.CENTER);
     VolumenBtn.setIcon(new ImageIcon("Assets/icon/volume.png"));
     VolumenBtn.addActionListener(BTNlistener);
 
     JButton ZeitBtn = new JButton();
-    ZeitBtn.setName("ZeitBtn");
+    ZeitBtn.setName("Zeit");
     ZeitBtn.setHorizontalAlignment(SwingConstants.CENTER);
     ZeitBtn.setIcon(new ImageIcon("Assets/icon/time.png"));
     ZeitBtn.addActionListener(BTNlistener);

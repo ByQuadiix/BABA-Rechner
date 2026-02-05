@@ -9,18 +9,21 @@ package Backend;
  * @author ByQuadiix
  */
 public class Laenge {
-private double[] Referenzwerte = {}; 
-private double zahl1;
+    private String[] Einheiten = {"µm", "mm", "cm", "dm", "m", "km", "zoll", "fuß", "yard", "meile", "seemeile", "lichtjahre", "parsec"};
+    private Double[] Faktoren = {1000000.0, 1000.0, 100.0, 10.0, 1.0, 0.001, 39.3701, 3.28084, 1.093613888889, 0.000621371, 0.000539957, 1.057e-16, 3.24078e-17};
 
-    public Laenge(double zahl1, double zahl2) {
-        this.zahl1 = zahl1;
+    public String[] getEinheiten() {
+        return Einheiten;
     }
 
-    
-    private double inputtoreferenz(double zahl, int eingabeindex){
-        double temp_Ergebnis = zahl1 * eingabeindex;
-        return temp_Ergebnis ;
+    public Double[] getFaktoren() {
+        return Faktoren;
     }
+
+
+
+
+
 
     
 }

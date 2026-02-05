@@ -1,0 +1,9 @@
+JButtons benutzen / verwenden:
+https://stackoverflow.com/questions/20601505/java-how-to-add-a-button-to-a-frame
+
+JButton Hintergründe setzen:
+https://blog.idrsolutions.com/how-to-set-jbutton-backgrounds/
+
+JFrame Borderlayout:
+
+https://javabeginners.de/Layout/BorderLayout.php
