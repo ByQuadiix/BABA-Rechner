@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+
+
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 /**
  *
@@ -9,12 +11,37 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  */
 
 public static JFrame window = new JFrame();
+private JFrame introFrame = new JFrame();
+
+// KI generiert von ChatGPT, angepasst von ByQuadiix
+private void switchtomain(){
+    introFrame.dispose();
+    window.setVisible(true);
+}
+
 
 void main() {
     window.setDefaultCloseOperation(EXIT_ON_CLOSE);
     window.setSize(1000, 1000);
     window.setLocationRelativeTo(null);
     window.setLayout(new BorderLayout());
+
+
+    //============================= Intro (KI generiert) ================================================\\
+    JLabel Intro = new JLabel(new ImageIcon("Assets/intro.gif"));
+    introFrame.add(Intro, BorderLayout.CENTER);
+    introFrame.pack();
+    introFrame.setLocationRelativeTo(null);
+    introFrame.setVisible(true);
+    Timer timer = new Timer( 8000, e ->{
+       switchtomain();
+    });
+    timer.setRepeats(false);
+    timer.start();
+
+
+
+
 
     //============================Universal Action Listener ==============================\\
     ActionListener BTNlistener = new ActionListener() {
@@ -28,8 +55,6 @@ void main() {
         }
 
     };
-
-
 
 
 
@@ -119,7 +144,7 @@ void main() {
 
 
 
-    window.setVisible(true);
+
 
 }
 
