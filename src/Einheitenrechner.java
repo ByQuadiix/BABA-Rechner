@@ -35,7 +35,7 @@ void main() {
     introFrame.pack();
     introFrame.setLocationRelativeTo(null);
     introFrame.setVisible(true);
-    Timer timer = new Timer( 500, e ->{
+    Timer timer = new Timer( 8000, e ->{
        switchtomain();
     });
     timer.setRepeats(false);
