@@ -2,21 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Backend;
+package Backend.Einheiten;
+
 /**
  *
  * @author ByQuadiix
  */
-public class Geschwindigkeit {
+public class Zeit {
     
 }
 
+
 /*
 Einheiten:
+ns (Nanosekunde)
+µs (Mikrosekunde)
+ms (Millisekunde)
+s  (Sekunde)
+min (Minute)
+h  (Stunde)
 
-m/s
-km/h
-Kn = Knoten
-Mph
-Mach
+d  (Tag)
+w  (Woche)
+m  (Monat)
+j / a (Jahr)
+
+jahrzehnt
+jahrhundert
+jahrtausend
+
+äon / epoch
 */

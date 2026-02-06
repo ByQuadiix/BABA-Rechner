@@ -2,19 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Backend;
-
+package Backend.Einheiten;
 /**
  *
  * @author ByQuadiix
  */
-public class Kraft {
+public class Geschwindigkeit {
     
 }
 
-
 /*
-Kilonewton
-newton
-kilopond
+Einheiten:
+
+m/s
+km/h
+Kn = Knoten
+Mph
+Mach
 */

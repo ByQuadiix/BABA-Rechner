@@ -7,3 +7,14 @@ https://blog.idrsolutions.com/how-to-set-jbutton-backgrounds/
 JFrame Borderlayout:
 
 https://javabeginners.de/Layout/BorderLayout.php
+
+
+JButton Actionlistener:
+https://stackoverflow.com/questions/284899/how-do-you-add-an-actionlistener-onto-a-jbutton-in-java
+
+JCombobox:
+https://stackoverflow.com/questions/4962416/preferred-way-of-getting-the-selected-item-of-a-jcombobox
+
+
+Grundwissen JFrame:
+Simon Hinzman der G

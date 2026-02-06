@@ -1,5 +1,7 @@
 package Backend;
 
+import Backend.Einheiten.Laenge;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -27,33 +29,64 @@ Laenge Laenge = new Laenge();
 
 
     public JPanel BuildPanel(String[] Einheiten){
-        JPanel Test = new JPanel();
-        Test.setLayout(new GridLayout(3,1));
-        JLabel ergebnis = new JLabel("Ergebnis");
+        //============================= Panel Aufbau ==============================\\
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(2, 1));
 
+            //============================= Überschrift ==============================\\
+            JLabel Überschrift = new JLabel("Einheitenrechner");
 
-        JPanel EinAusgabe = new JPanel();
-        JLabel eingabe = new JLabel("Eingabe:");
-        EinAusgabe.add(eingabe);
-        JTextField input = new JTextField(10);
-        EinAusgabe.add(input);
+            //============================= Ein- & Ausgabe mit Auswahl ==============================\\
+            JPanel Rechner = new JPanel();
+            Rechner.setLayout(new GridLayout(2, 1));
 
-        JPanel Auswahl = new JPanel();
-        Auswahl.setLayout(new GridLayout(1,4));
-        JComboBox Einheit1 = new JComboBox(Einheiten);
-        JLabel text = new JLabel("Umwandeln:");
-        JComboBox Einheit2 = new JComboBox(Einheiten);
-        JLabel zu = new JLabel("zu");
-        Auswahl.add(text);
-        Auswahl.add(Einheit1);
-        Auswahl.add(zu);
-        Auswahl.add(Einheit2);
+                //============================= Eingabe & Ausgabe ==============================\\
+                JPanel EingabeUndAusgabe = new JPanel();
+                EingabeUndAusgabe.setLayout(new GridLayout(3, 1));
 
-        // Komponenten in Panel einfügen
-        Test.add(ergebnis);
-        Test.add(EinAusgabe);
-        Test.add(Auswahl);
+                    //============================= Eingabe ==============================\\
+                    JTextField Eingabe = new JTextField("0");
 
-        return Test;
+                    //============================= Umrechnen ==============================\\
+                    JButton Umrechnen = new JButton("Umrechnen");
+
+                    //============================= Ausgabe ==============================\\
+                    JTextField Ausgabe = new JTextField("0");
+                    Ausgabe.setEditable(false);
+
+                EingabeUndAusgabe.add(Eingabe);
+                EingabeUndAusgabe.add(Umrechnen);
+                EingabeUndAusgabe.add(Ausgabe);
+
+                //============================= Auswahl ==============================\\
+                JPanel Auswahl = new JPanel();
+                Auswahl.setLayout(new GridLayout(1, 3));
+
+                    //============================= Von ==============================\\
+                    JComboBox<String> Von = new JComboBox<>(Einheiten);
+
+                    //============================= Leeres Panel ==============================\\
+                    JLabel zuText = new JLabel("zu");
+
+                    //============================= Zu ==============================\\
+                    JComboBox<String> Zu = new JComboBox<>(Einheiten);
+
+                Auswahl.add(Von);
+                Auswahl.add(zuText);
+                Auswahl.add(Zu);
+
+            Rechner.add(EingabeUndAusgabe);
+            Rechner.add(Auswahl);
+
+        panel.add(Überschrift);
+        panel.add(Rechner);
+
+        return panel;
     }
+
+    private void rechnen(){
+
+    }
+
+
 }
