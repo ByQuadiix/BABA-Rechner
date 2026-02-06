@@ -30,7 +30,7 @@ void main() {
 
 
     //============================= Intro (KI generiert) ================================================\\
-    JLabel Intro = new JLabel(new ImageIcon("Assets/intro.gif"));
+    JLabel Intro = new JLabel(new ImageIcon("Assets/intro(1).gif"));
     introFrame.add(Intro, BorderLayout.CENTER);
     introFrame.pack();
     introFrame.setLocationRelativeTo(null);
