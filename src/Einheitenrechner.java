@@ -1,4 +1,5 @@
 import Backend.PanelBuilder;
+import Backend.Rechenlogik;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,10 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public static JFrame window = new JFrame();
 private JFrame introFrame = new JFrame();
 PanelBuilder Builder = new PanelBuilder();
+Rechenlogik Rechenlogik = new Rechenlogik();
+
+
+
 // KI generiert von ChatGPT, angepasst von ByQuadiix
 private void switchtomain(){
     introFrame.dispose();
@@ -52,7 +57,7 @@ void main() {
             JButton source = (JButton) e.getSource();
             String text = source.getName();
             System.out.println(text);
-            JPanel newPanel = Builder.BuildPanel(Builder.getEinheiten(text));
+            JPanel newPanel = Builder.BuildPanel(Rechenlogik.getEinheiten(text));
             if (newPanel == null) {
                 System.out.println("Fehler: Panel konnte nicht erstellt werden.");
                 return;

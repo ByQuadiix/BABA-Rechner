@@ -25,26 +25,29 @@ public class Laenge {
     public Laenge() {
     }
 
-    private void rechnen(double input, int index_von, int index_zu){
+    public double rechnen(double input, int index_von, int index_zu){
+        double ergebnis;
+        double referenz;
 
         //============================= Umrechnung zu Referenz ==============================\\
         if(Faktoren[index_von] > 4){
-            double referenz = input * Faktoren[index_von];
+            referenz = input * Faktoren[index_von];
         } else if (Faktoren[index_von] < 4) {
-            double referenz = input / Faktoren[index_von];
+            referenz = input / Faktoren[index_von];
         } else {
-            double referenz = input;
+            referenz = input;
         }
 
         //===================== Umrechnung von Referenz zu Ziel ==============================\\
         if(index_zu > 4){
-            double ergebnis = input / Faktoren[index_zu];
+            ergebnis = input / Faktoren[index_zu];
         } else if (index_zu < 4) {
-            double ergebnis = input * Faktoren[index_zu];
+            ergebnis = input * Faktoren[index_zu];
         } else {
-            double ergebnis = input;
+            ergebnis = input;
         }
 
+        return ergebnis;
 
     }
 

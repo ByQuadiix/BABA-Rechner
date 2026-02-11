@@ -6,26 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelBuilder {
-    private String Einheit;
+Rechenlogik Rechner = new Rechenlogik();
 
-
-
-Laenge Laenge = new Laenge();
-
-    public String[] getEinheiten(String Einheit){
-        String[] Einheiten = null;
-
-        switch (Einheit){
-            case "Länge":
-                Einheiten = Laenge.getEinheiten();
-                break;
-        }
-
-        for(int i = 0; i < Einheiten.length; i++){
-            System.out.println(Einheiten[i]);
-        }
-        return Einheiten;
-    }
 
 
     public JPanel BuildPanel(String[] Einheiten){
@@ -54,6 +36,18 @@ Laenge Laenge = new Laenge();
                     JTextField Ausgabe = new JTextField("0");
                     Ausgabe.setEditable(false);
 
+
+                Umrechnen.addActionListener(e -> {
+                    System.out.println("Umrechnen gedrückt");
+                    double input = 0;
+                    input = Double.parseDouble(Eingabe.getText());
+                    try {
+                        
+                    } catch (Exception ex) {
+                        System.out.println("Bitte Punkt statt komma nutzen");
+                    }
+                    System.out.println("Input: " + input);
+                });
                 EingabeUndAusgabe.add(Eingabe);
                 EingabeUndAusgabe.add(Umrechnen);
                 EingabeUndAusgabe.add(Ausgabe);
@@ -84,8 +78,10 @@ Laenge Laenge = new Laenge();
         return panel;
     }
 
-    private void rechnen(){
 
+    private void rechnen(double input, int index_von, int index_zu){
+
+    Rechner.rechnen(input, index_von, index_zu);
     }
 
 
