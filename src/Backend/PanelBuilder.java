@@ -36,18 +36,6 @@ Rechenlogik Rechner = new Rechenlogik();
                     JTextField Ausgabe = new JTextField("0");
                     Ausgabe.setEditable(false);
 
-
-                Umrechnen.addActionListener(e -> {
-                    System.out.println("Umrechnen gedrückt");
-                    double input = 0;
-                    input = Double.parseDouble(Eingabe.getText());
-                    try {
-                        
-                    } catch (Exception ex) {
-                        System.out.println("Bitte Punkt statt komma nutzen");
-                    }
-                    System.out.println("Input: " + input);
-                });
                 EingabeUndAusgabe.add(Eingabe);
                 EingabeUndAusgabe.add(Umrechnen);
                 EingabeUndAusgabe.add(Ausgabe);
@@ -75,13 +63,31 @@ Rechenlogik Rechner = new Rechenlogik();
         panel.add(Überschrift);
         panel.add(Rechner);
 
+        Umrechnen.addActionListener(e -> {
+            System.out.println("Umrechnen gedrückt");
+            double input = 0;
+            input = Double.parseDouble(Eingabe.getText());
+            int index1 = Von.getSelectedIndex();
+            int index2 = Zu.getSelectedIndex();
+
+
+                Ausgabe.setText(Double.toString(rechnen(input,index1, index2 )));
+
+            System.out.println("Input: " + input);
+        });
+
+
+
         return panel;
     }
 
 
-    private void rechnen(double input, int index_von, int index_zu){
 
-    Rechner.rechnen(input, index_von, index_zu);
+
+    private double rechnen(double input, int index_von, int index_zu){
+
+
+        return Rechner.rechnen(input, index_von, index_zu);
     }
 
 

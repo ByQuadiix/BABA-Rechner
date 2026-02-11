@@ -6,7 +6,7 @@ public class Rechenlogik {
     private int Einheit1;
     private int Einheit2;
     private double Eingabe;
-    private String Einheit;
+    static String Einheit;
 
 
     public Rechenlogik() {
@@ -16,6 +16,8 @@ public class Rechenlogik {
 
     public double rechnen(double input, int index_von, int index_zu){
         double ergebnis = 0;
+        System.out.println("DEBUG:");
+        System.out.println(this.Einheit);
         switch (Einheit){
             case "Länge":
                 ergebnis = Laenge.rechnen(input, index_von, index_zu);

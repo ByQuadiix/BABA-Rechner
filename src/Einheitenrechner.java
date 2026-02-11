@@ -13,6 +13,12 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  * @author ByQuadiix
  */
 
+
+
+// BABA = Berechnung Aller Basiseinheiten & Ableitungen
+
+
+
 public static JFrame window = new JFrame();
 private JFrame introFrame = new JFrame();
 PanelBuilder Builder = new PanelBuilder();

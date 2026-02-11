@@ -30,23 +30,25 @@ public class Laenge {
         double referenz;
 
         //============================= Umrechnung zu Referenz ==============================\\
-        if(Faktoren[index_von] > 4){
+        if(Faktoren[index_von] < 4){
             referenz = input * Faktoren[index_von];
-        } else if (Faktoren[index_von] < 4) {
+        } else if (Faktoren[index_von] > 4) {
             referenz = input / Faktoren[index_von];
         } else {
             referenz = input;
         }
 
         //===================== Umrechnung von Referenz zu Ziel ==============================\\
-        if(index_zu > 4){
+        if(index_zu < 4){
             ergebnis = input / Faktoren[index_zu];
-        } else if (index_zu < 4) {
+        } else if (index_zu > 4) {
             ergebnis = input * Faktoren[index_zu];
         } else {
             ergebnis = input;
         }
 
+        System.out.println("DEBUG:");
+        System.out.println("Ergebnis: " + ergebnis);
         return ergebnis;
 
     }
