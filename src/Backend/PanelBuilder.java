@@ -53,16 +53,21 @@ Rechenlogik Rechner = new Rechenlogik();
                     //============================= Zu ==============================\\
                     JComboBox<String> Zu = new JComboBox<>(Einheiten);
 
+
+                //=================Objekte zum Auswahl Panel hinzufügen==================\\
                 Auswahl.add(Von);
                 Auswahl.add(zuText);
                 Auswahl.add(Zu);
-
+            //=================Objekte zum Rechner Panel hinzufügen==================\\
             Rechner.add(EingabeUndAusgabe);
             Rechner.add(Auswahl);
-
+        //=================Objekte zum Haupt Panel hinzufügen==================\\
         panel.add(Überschrift);
         panel.add(Rechner);
 
+
+
+        //================= Action Listener ===================\\
         Umrechnen.addActionListener(e -> {
             System.out.println("Umrechnen gedrückt");
             double input = 0;
@@ -71,7 +76,7 @@ Rechenlogik Rechner = new Rechenlogik();
             int index2 = Zu.getSelectedIndex();
 
 
-                Ausgabe.setText(Double.toString(rechnen(input,index1, index2 )));
+            Ausgabe.setText(Double.toString(rechnen(input,index1, index2 )));
 
             System.out.println("Input: " + input);
         });
@@ -83,7 +88,7 @@ Rechenlogik Rechner = new Rechenlogik();
 
 
 
-
+//============================= Rechen Methode ==============================\\
     private double rechnen(double input, int index_von, int index_zu){
 
 

@@ -6,7 +6,7 @@ public class Rechenlogik {
     private int Einheit1;
     private int Einheit2;
     private double Eingabe;
-    static String Einheit;
+    static String temp_Einheit;
 
 
     public Rechenlogik() {
@@ -17,8 +17,8 @@ public class Rechenlogik {
     public double rechnen(double input, int index_von, int index_zu){
         double ergebnis = 0;
         System.out.println("DEBUG:");
-        System.out.println(this.Einheit);
-        switch (Einheit){
+        System.out.println(this.temp_Einheit);
+        switch (temp_Einheit){
             case "Länge":
                 ergebnis = Laenge.rechnen(input, index_von, index_zu);
                 break;
@@ -41,7 +41,7 @@ public class Rechenlogik {
     //============================= Methoden ==============================\\
     public String[] getEinheiten(String Einheit){
         String[] Einheiten = null;
-        this.Einheit = Einheit;
+        this.temp_Einheit = Einheit;
         switch (Einheit){
             case "Länge":
                 Einheiten = Laenge.getEinheiten();
