@@ -6,17 +6,15 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+
 /**
  *
  * @author ByQuadiix
  */
 
 
-
 // BABA = Berechnung Aller Basiseinheiten & Ableitungen
-
 
 
 public static JFrame window = new JFrame();
@@ -25,9 +23,8 @@ PanelBuilder Builder = new PanelBuilder();
 Rechenlogik Rechenlogik = new Rechenlogik();
 
 
-
 // KI generiert von ChatGPT, angepasst von ByQuadiix
-private void switchtomain(){
+private void switchtomain() {
     introFrame.dispose();
     window.setVisible(true);
 }
@@ -38,6 +35,7 @@ void main() {
     window.setSize(1000, 1000);
     window.setLocationRelativeTo(null);
     window.setLayout(new BorderLayout());
+    window.setResizable(false);
 
 
     //============================= Intro (KI generiert) ================================================\\
@@ -46,14 +44,11 @@ void main() {
     introFrame.pack();
     introFrame.setLocationRelativeTo(null);
     introFrame.setVisible(true);
-    Timer timer = new Timer( 8000, e ->{
-       switchtomain();
+    Timer timer = new Timer(8000, e -> {
+        switchtomain();
     });
     timer.setRepeats(false);
     timer.start();
-
-
-
 
 
     //============================Universal Action Listener ==============================\\
@@ -75,18 +70,15 @@ void main() {
     };
 
 
-
     //======================================FONTS============================================\\
     Font ueberschrift = new Font("Arial", Font.BOLD, 40);
     Font text = new Font("Sans Serif", Font.PLAIN, 25);
 
 
-
-
     //======================================Title Panel=========================================\\
     JPanel Title = new JPanel();
     Title.setLayout(new BorderLayout());
-    JLabel TitleTextPanel = new JLabel("BABA-RECHNER");
+    JLabel TitleTextPanel = new JLabel("Berechnung Aller Basiseinheiten & Ableitungen");
     TitleTextPanel.setHorizontalAlignment(SwingConstants.CENTER);
     TitleTextPanel.setFont(ueberschrift);
     Title.add(TitleTextPanel, BorderLayout.CENTER);
@@ -156,12 +148,6 @@ void main() {
 
 
     window.add(Menu);
-
-
-
-
-
-
 
 
 }

@@ -8,50 +8,29 @@ package Backend.Einheiten;
  *
  * @author ByQuadiix
  */
-public class Laenge {
-
-
-    private String[] Einheiten = {"µm", "mm", "cm", "dm", "m", "km", "zoll", "fuß", "yard", "meile", "seemeile", "lichtjahre", "parsec"};
-    private Double[] Faktoren = {1000000.0, 1000.0, 100.0, 10.0, 1.0, 0.001, 39.3701, 3.28084, 1.093613888889, 0.000621371, 0.000539957, 1.057e-16, 3.24078e-17};
-
-    public String[] getEinheiten() {
-        return Einheiten;
-    }
-
-    public Double[] getFaktoren() {
-        return Faktoren;
-    }
+public class Laenge extends Einheit {
 
     public Laenge() {
+        Einheiten = new String[]{
+                "µm", "mm", "cm", "zoll", "dm", "fuß", "yard", "m", "km", "meile", "seemeile", "lichtjahre", "parsec"
+        };
+
+        Faktoren = new Double[]{
+                1000000.0,          // µm
+                1000.0,             // mm
+                100.0,              // cm
+                39.3701,            // zoll
+                10.0,               // dm
+                3.28084,            // fuß
+                1.093613888889,     // yard
+                1.0,                // m (Basis)
+                0.001,              // km
+                0.000621371,        // meile
+                0.000539957,        // seemeile
+                1.057e-16,          // lichtjahre
+                3.24078e-17         // parsec
+        };
     }
 
-    public double rechnen(double input, int index_von, int index_zu){
-        double ergebnis;
-        double referenz;
 
-        //============================= Umrechnung zu Referenz ==============================\\
-        if(Faktoren[index_von] < 4){
-            referenz = input * Faktoren[index_von];
-        } else if (Faktoren[index_von] > 4) {
-            referenz = input / Faktoren[index_von];
-        } else {
-            referenz = input;
-        }
-
-        //===================== Umrechnung von Referenz zu Ziel ==============================\\
-        if(index_zu < 4){
-            ergebnis = input / Faktoren[index_zu];
-        } else if (index_zu > 4) {
-            ergebnis = input * Faktoren[index_zu];
-        } else {
-            ergebnis = input;
-        }
-
-        System.out.println("DEBUG:");
-        System.out.println("Ergebnis: " + ergebnis);
-        return ergebnis;
-
-    }
-
-    
 }
