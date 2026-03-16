@@ -42,6 +42,9 @@ public class Rechenlogik {
             case "Zeit":
                 ergebnis = Zeit.rechnen(input, index_von, index_zu);
                 break;
+            case "Temperatur":
+                ergebnis = TemperaturRechner.rechnen(input, index_von, index_zu);
+                break;
             default:
                 System.out.println("FEHLER: Unbekannte Einheit!");
                 break;
