@@ -7,7 +7,6 @@ package Backend.Einheiten;
 /**
  *
  * @author ByQuadiix
- * ✅ NUTZT STANDARD-RECHENMETHODE (lineare Umrechnung)
  */
 public class Gewicht extends Einheit {
 

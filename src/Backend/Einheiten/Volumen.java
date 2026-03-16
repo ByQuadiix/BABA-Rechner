@@ -7,6 +7,7 @@ package Backend.Einheiten;
 /**
  *
  * @author ByQuadiix
+
  * ⚠️ HINWEIS: Nm³ (Normkubikmeter) ist temperatur-/druckabhängig
  * Hier vereinfacht: Nm³ ≈ m³ bei Standardbedingungen
  * ✅ NUTZT STANDARD-RECHENMETHODE (vereinfacht)
@@ -35,3 +36,4 @@ public class Volumen extends Einheit {
         };
     }
 }
+

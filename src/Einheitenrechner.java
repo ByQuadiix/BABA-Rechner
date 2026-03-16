@@ -8,10 +8,7 @@ import java.awt.event.*;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
-/**
- *
- * @author ByQuadiix
- */
+
 
 
 // BABA = Berechnung Aller Basiseinheiten & Ableitungen

@@ -7,7 +7,6 @@ package Backend.Einheiten;
 /**
  *
  * @author ByQuadiix
- * ✅ NUTZT STANDARD-RECHENMETHODE (lineare Umrechnung)
  */
 public class Kraft extends Einheit {
 
@@ -27,3 +26,4 @@ public class Kraft extends Einheit {
         };
     }
 }
+

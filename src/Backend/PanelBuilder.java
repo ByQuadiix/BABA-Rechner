@@ -130,8 +130,6 @@ Rechenlogik Rechner = new Rechenlogik();
 
 //============================= Rechen Methode ==============================\\
 public double rechnen(double input, int index_von, int index_zu){
-
-
         return Rechner.rechnen(input, index_von, index_zu);
     }
 

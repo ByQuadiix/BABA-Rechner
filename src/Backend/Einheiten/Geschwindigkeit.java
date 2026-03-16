@@ -6,9 +6,7 @@ package Backend.Einheiten;
 /**
  *
  * @author ByQuadiix
- * ⚠️ ACHTUNG: Mach ist variabel (abhängig von Temperatur/Höhe)
  * Hier vereinfacht mit Mach 1 = 343 m/s (20°C auf Meereshöhe)
- * ✅ NUTZT STANDARD-RECHENMETHODE (vereinfacht)
  */
 public class Geschwindigkeit extends Einheit {
 
@@ -27,3 +25,4 @@ public class Geschwindigkeit extends Einheit {
         };
     }
 }
+

@@ -7,6 +7,7 @@ package Backend.Einheiten;
 /**
  *
  * @author ByQuadiix
+
  * ⚠️ ACHTUNG: Monate und Jahre variieren!
  * Hier vereinfacht:
  * - 1 Monat = 30 Tage (durchschnittlich)
@@ -40,3 +41,4 @@ public class Zeit extends Einheit {
         };
     }
 }
+
