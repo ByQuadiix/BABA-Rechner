@@ -1,0 +1,129 @@
+@startuml
+' PlantUML-Klassendiagramm für den BABA-Rechner
+
+title BABA-Rechner – Überblick über Klassen und Datenfluss
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam packageStyle rectangle
+skinparam linetype ortho
+left to right direction
+
+class Einheitenrechner {
+  +window : JFrame
+  -introFrame : JFrame
+  -Builder : PanelBuilder
+  -Rechenlogik : Rechenlogik
+  -menuPanel : JPanel
+  --
+  -switchtomain() : void
+  +main() : void
+  -update(newPanel : JPanel) : void
+}
+
+package Backend {
+  class Rechenlogik {
+    -Einheit1 : int
+    -Einheit2 : int
+    -Eingabe : double
+    {static} temp_Einheit : String
+    --
+    +rechnen(input : double, index_von : int, index_zu : int) : double
+    +getEinheiten(Einheit : String) : String[]
+  }
+
+  class PanelBuilder {
+    -Rechner : Rechenlogik
+    -HINTERGRUND : Color
+    -BUTTON_FARBE : Color
+    --
+    +BuildPanel(Einheiten : String[]) : JPanel
+    +BuildPanel(Einheiten : String[], onBack : Runnable) : JPanel
+    +rechnen(input : double, index_von : int, index_zu : int) : double
+  }
+}
+
+package "Backend.Einheiten" {
+  class Einheit {
+    +Einheiten : String[]
+    #Faktoren : Double[]
+    --
+    +getEinheiten() : String[]
+    +getFaktoren() : Double[]
+    +rechnen(input : double, index_von : int, index_zu : int) : double
+  }
+
+  class Laenge
+  class Fläche
+  class Geschwindigkeit
+  class Gewicht
+  class Kraft
+  class Volumen
+  class Zeit
+  class Temperatur {
+    +rechnen(input : double, index_von : int, index_zu : int) : double
+    -zuCelsius(wert : double, index : int) : double
+    -vonCelsius(celsius : double, index : int) : double
+  }
+}
+
+PanelBuilder --|> Rechenlogik
+Laenge --|> Einheit
+Fläche --|> Einheit
+Geschwindigkeit --|> Einheit
+Gewicht --|> Einheit
+Kraft --|> Einheit
+Volumen --|> Einheit
+Zeit --|> Einheit
+Temperatur --|> Einheit
+
+Einheitenrechner *-- PanelBuilder : erstellt
+Einheitenrechner *-- Rechenlogik : nutzt
+PanelBuilder *-- Rechenlogik : Rechner
+Rechenlogik *-- Laenge
+Rechenlogik *-- Fläche
+Rechenlogik *-- Geschwindigkeit
+Rechenlogik *-- Gewicht
+Rechenlogik *-- Kraft
+Rechenlogik *-- Volumen
+Rechenlogik *-- Zeit
+Rechenlogik *-- Temperatur : TemperaturRechner
+
+Einheitenrechner ..> Rechenlogik : getEinheiten(name)
+Einheitenrechner ..> PanelBuilder : BuildPanel(..., onBack)
+PanelBuilder ..> Rechenlogik : rechnen(...)
+Rechenlogik ..> Einheit : delegiert an konkrete Klasse
+Temperatur ..> Einheit : Sonderfall ohne lineare Faktoren
+
+note right of Rechenlogik
+  Zentraler Zustand:
+  temp_Einheit ist static.
+  getEinheiten(...) setzt den Wert,
+  rechnen(...) liest ihn später wieder.
+end note
+
+note bottom of Einheit
+  Standardformel für lineare Umrechnung:
+  referenz = input / Faktoren[index_von]
+  ergebnis = referenz * Faktoren[index_zu]
+end note
+
+note bottom of Temperatur
+  Temperatur nutzt eigene Logik mit Offsets.
+  Ablauf:
+  Eingabe -> Celsius -> Zieleinheit
+  Beispiel: °F = °C * 1.8 + 32
+end note
+
+legend right
+  Datenfluss im Programm:
+  1. Menü-Button liefert Namen wie "Gewicht"
+  2. Rechenlogik.getEinheiten(name)
+  3. PanelBuilder.BuildPanel(...)
+  4. Klick auf "Umrechnen"
+  5. Rechenlogik.rechnen(...)
+  6. Konkrete Einheit.rechnen(...)
+endlegend
+
+@enduml
+
